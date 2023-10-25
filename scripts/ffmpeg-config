@@ -13,7 +13,7 @@ if test -f "$BUILD"/ffmpeg_options ; then
     unset -v IFS
 fi
 
-OPTIONS="--enable-gpl --disable-debug --disable-doc --enable-static --disable-shared"
+OPTIONS="--enable-gpl --disable-debug --disable-doc --enable-static --disable-shared --enable-cuda-nvcc --enable-libnpp --enable-libx264 --enable-nvenc --enable-cuda --enable-cuvid"
 if "$BUILD"/scripts/test-libmpv ; then
     OPTIONS="$OPTIONS --enable-pic"
 fi
@@ -48,5 +48,12 @@ mkdir -p "$BUILD"/ffmpeg_build
 cd "$BUILD"/ffmpeg_build
 # need to link against stdc++ in case libplacebo was built with glslang,
 # which requires that
+
 export LDFLAGS="$LDFLAGS -lstdc++"
-"$BUILD"/ffmpeg/configure --prefix="$BUILD"/build_libs $OPTIONS "$@"
+
+CMD="CC=gcc-9 $BUILD/ffmpeg/configure --prefix=$BUILD/build_libs $OPTIONS  --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64  $@"
+echo "$CMD"
+eval $CMD
+#CC=gcc-9 "$BUILD"/ffmpeg/configure --prefix="$BUILD"/build_libs $OPTIONS "$@"
+
+
