@@ -14,5 +14,12 @@
 /debian/mpv.substvars
 /config/
 /*_options
-ffbuild/config.log
+ffmpeg-4.4.4/
+ffmpeg-5.0.3
+ffmpeg4.3
+ffmpeg-4.3.6.tar.xz
+ffmpeg-5.0.3.tar.xz
+ffmpeg-4.4.4.tar.xz
+ffmpeg-6.0.tar.xz
+ffmpeg_/
 nv-codec-headers/

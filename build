@@ -8,7 +8,7 @@ scripts/libplacebo-config
 scripts/libplacebo-build "$@"
 scripts/libass-config
 scripts/libass-build "$@"
-scripts/ffmpeg-config
-scripts/ffmpeg-build "$@"
+#scripts/ffmpeg-config
+#scripts/ffmpeg-build "$@"
 scripts/mpv-config
 scripts/mpv-build "$@"

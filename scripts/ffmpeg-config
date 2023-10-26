@@ -13,7 +13,7 @@ if test -f "$BUILD"/ffmpeg_options ; then
     unset -v IFS
 fi
 
-OPTIONS="--enable-gpl --disable-debug --disable-doc --enable-static --disable-shared --enable-cuda-nvcc --enable-libnpp --enable-libx264 --enable-nvenc --enable-cuda --enable-cuvid"
+OPTIONS="--enable-nonfree --enable-gpl --disable-debug --disable-doc --disable-static --enable-shared --enable-cuda-nvcc --enable-libnpp --enable-libx264 --enable-nvenc --enable-cuda --enable-cuvid"
 if "$BUILD"/scripts/test-libmpv ; then
     OPTIONS="$OPTIONS --enable-pic"
 fi
@@ -28,7 +28,7 @@ else
         OPTIONS="$OPTIONS --enable-gnutls"
         echo "Auto-enabling GnuTLS."
     elif pkg-config openssl ; then
-        OPTIONS="$OPTIONS --enable-nonfree --enable-openssl"
+        OPTIONS="$OPTIONS --enable-openssl"
         echo "Auto-enabling OpenSSL (creates a non-redistributable binary)."
     fi
 fi
