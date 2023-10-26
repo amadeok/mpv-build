@@ -2,8 +2,8 @@
 set -e
 export LC_ALL=C
 
-#scripts/fribidi-config
-#scripts/fribidi-build "$@"
+scripts/fribidi-config
+scripts/fribidi-build "$@"
 scripts/libplacebo-config
 scripts/libplacebo-build "$@"
 scripts/libass-config
